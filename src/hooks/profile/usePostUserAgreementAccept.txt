@@ -1,0 +1,47 @@
+import { useAxiosPrivate } from '@/hooks';
+import useToast from '@/hooks/useToast';
+import { useMutation, useQueryClient } from '@tanstack/react-query';
+import { AxiosResponse, isAxiosError } from 'axios';
+
+type Options = {
+  agreementFileId: string;
+  agreementName: string;
+  onSuccess: () => void;
+};
+
+const usePostUserAgreementAccept = ({
+  agreementFileId,
+  agreementName,
+  onSuccess,
+}: Options) => {
+  const axiosPrivate = useAxiosPrivate();
+  const queryClient = useQueryClient();
+  const toast = useToast();
+
+  return useMutation({
+    mutationFn: async (): Promise<AxiosResponse<ISuccessResponse>> => {
+      return await axiosPrivate.post(
+        `/v1/web/agreement/file/${agreementFileId}/agree`,
+      );
+    },
+    onSuccess: () => {
+      queryClient.refetchQueries({
+        queryKey: ['agreements'],
+        exact: true,
+      });
+      toast('success', 'Success', `${agreementName} is accepted`);
+      onSuccess();
+    },
+    onError: (error) => {
+      if (isAxiosError<IErrorResponse>(error)) {
+        toast(
+          'error',
+          error.response?.data.error ?? 'Error',
+          error.response?.data.message ?? 'Error message',
+        );
+      }
+    },
+  });
+};
+
+export default usePostUserAgreementAccept;

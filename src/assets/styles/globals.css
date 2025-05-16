@@ -1,0 +1,84 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+  .text-gradient-gold {
+    background: linear-gradient(
+      74.08deg,
+      #94783e -6.8%,
+      #f3eda6 16.76%,
+      #f8fae5 30.5%,
+      #ffe2be 49.6%,
+      #d5be88 78.56%,
+      #f8fae5 89.01%,
+      #d5be88 100.43%
+    );
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+  .bg-linear-gradient {
+    background: linear-gradient(180deg, #1f4247 0%, #0d1d23 50%, #09141a 100%);
+  }
+
+  .text-linear-gradient-blue {
+    background: linear-gradient(
+      134.86deg,
+      #abfffd 2.64%,
+      #4599db 102.4%,
+      #aadaff 102.4%
+    );
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .backdrop-blur-custom {
+    backdrop-filter: blur(50px);
+  }
+
+  .overlay-linear-gradient {
+    background: linear-gradient(
+      180deg,
+      rgba(0, 0, 0, 0.76) 0%,
+      rgba(0, 0, 0, 0) 45.83%,
+      #000000 100%
+    );
+  }
+  /* Untuk Chrome, Safari, Edge (berbasis Chromium) */
+  input[type="number"]::-webkit-outer-spin-button,
+  input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+
+  /* Untuk Firefox */
+  input[type="number"] {
+    -moz-appearance: textfield;
+  }
+}
+
+/* :root {
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: 0, 0, 0;
+    --background-end-rgb: 0, 0, 0;
+  }
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+  background: linear-gradient(
+      to bottom,
+      transparent,
+      rgb(var(--background-end-rgb))
+    )
+    rgb(var(--background-start-rgb));
+} */

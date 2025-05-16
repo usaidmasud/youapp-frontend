@@ -1,0 +1,25 @@
+services:
+  app:
+    container_name: youapp-web
+    build: .
+    ports:
+      - "3090:3090"
+    environment:
+      - PORT=3090
+      - NEXT_PUBLIC_PORT=3090
+      - NEXT_PUBLIC_FILE_URL=http://localhost:3091/file/
+      - NEXT_PUBLIC_API_URL=http://localhost:3091
+
+      # NextAuth
+      - NEXTAUTH_SECRET=BetjlAk08kOvCqI+7ONcrtWptkGIoHGmYosJtcTVzXI=
+      - NEXTAUTH_URL=http://localhost:3090
+
+      # Socket
+      - NEXT_PUBLIC_SOCKET_URL=http://localhost:3094
+
+    networks:
+      - youapp-backend
+
+networks:
+  youapp-backend:
+    external: true
