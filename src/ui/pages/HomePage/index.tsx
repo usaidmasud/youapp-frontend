@@ -136,8 +136,8 @@ export default function HomePage() {
   return (
     <MainLayout>
       <PageHeader
-        hideBack
         backUrl="/"
+        title={`@${user?.username}`}
         extra={
           <DropdownMenu
             trigger={

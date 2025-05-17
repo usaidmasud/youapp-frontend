@@ -8,16 +8,18 @@ interface AuthLayoutProps {
   title: string;
   footerText?: "login" | "register";
   footerLink?: string;
+  backUrl?: string;
 }
 export default function AuthLayout({
   children,
   title,
   footerText,
   footerLink,
+  backUrl,
 }: AuthLayoutProps) {
   return (
     <div className="flex min-h-screen max-w-md w-full mx-auto flex-col bg-[radial-gradient(121.73%_121.49%_at_100%_-3.39%,_#1F4247_0%,_#0D1D23_56.18%,_#09141A_100%)] p-5 pb-10">
-      <PageHeader hideBack />
+      <PageHeader backUrl={backUrl} />
       <div className="ml-6 mt-12">
         <h1 className="text-white text-[24px] font-bold leading-[100%] tracking-[0%]">
           {title}

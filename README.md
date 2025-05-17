@@ -4,10 +4,11 @@ This is a frontend web application built using Next.js 13 App Router. It is part
 
 This app supports:
 
-- Authentication
-- Chat features
-- Notifications
-- User profile management
+- **Authentication**
+- **Chat features**
+  Real-time messaging accessible after login. Click the three-dot icon (\*\*\*) to explore. For testing purposes, create multiple accounts.
+- **Notifications**
+- **User profile management**
 
 ## Technology Used
 

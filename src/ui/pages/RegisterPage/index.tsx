@@ -45,7 +45,12 @@ export default function RegisterPage() {
   }, [reset]);
 
   return (
-    <AuthLayout title="Register" footerText="register" footerLink="/auth/login">
+    <AuthLayout
+      title="Register"
+      footerText="register"
+      footerLink="/auth/login"
+      backUrl="/auth/login"
+    >
       <form onSubmit={handleSubmit(onSubmit)} className="w-full ">
         <Controller
           name="email"

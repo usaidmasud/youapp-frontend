@@ -12,6 +12,7 @@ import Spinner from "@/ui/components/Spinner";
 import FormGroupLogin from "@/ui/components/FormGroupLogin";
 import { useState } from "react";
 import toast from "react-hot-toast";
+import PageHeader from "@/ui/components/PageHeader";
 
 export default function LoginPage() {
   const router = useRouter();
@@ -47,7 +48,12 @@ export default function LoginPage() {
   };
 
   return (
-    <AuthLayout title="Login" footerText="login" footerLink="/auth/register">
+    <AuthLayout
+      title="Login"
+      footerText="login"
+      footerLink="/auth/register"
+      backUrl="/auth/login"
+    >
       <form onSubmit={handleSubmit(onSubmit)} className="w-full ">
         <Controller
           name="usernameOrEmail"
